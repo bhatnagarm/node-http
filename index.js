@@ -27,6 +27,12 @@ const server = http.createServer((req,res) => {
         }
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
+        res.setHeader('X-Powered-By','bhatnagarm');
+        //this is a alternate way of sending headers
+        res.writeHead(200, {
+          'Content-Type':'text/html',
+          'X-Powered-By':'bhatnagarm'
+        });
         fs.createReadStream(filePath).pipe(res);
       })
     }
